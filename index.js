@@ -9,11 +9,26 @@ function randomNumber(min = 1, max = 100) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function checkForLimits() {
+    if (
+        localStorage.getItem("lower") === null ||
+        localStorage.getItem("upper") === null
+    ) {
+        window.alert(
+            `No upper and lower limit set. Please go to ${window.location.href.replace("index.html", "setnumber.html")} to set the numbers.`,
+        );
+    }
+}
+
+window.addEventListener("load", checkForLimits);
+
 btn.addEventListener("click", () => {
     isScrollOpen = true;
 
     btn.disabled = true;
     closebtn.disabled = true;
+
+    checkForLimits();
 
     const lower = parseInt(localStorage.getItem("lower"));
     const upper = parseInt(localStorage.getItem("upper"));
@@ -35,6 +50,8 @@ btn.addEventListener("click", () => {
             fireworks[i].classList.add("start");
             fireworks[i].classList.remove("dnone");
         }
+        var audio = new Audio("./firework.mp3");
+        audio.play();
     }, 810);
 
     setTimeout(() => {

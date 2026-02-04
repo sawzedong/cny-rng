@@ -262,7 +262,7 @@ img {
 .firework.start,
 .firework.start::after,
 .firework.start::before {
-    animation: firework 2s 3 forwards;
+    animation: firework 2s 2 forwards;
     /* animation-iteration-count: 3 !important; */
 }
 
@@ -326,4 +326,10 @@ p.form {
 }
 button.form {
     margin-top: 1rem;
+}
+
+#testBtn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
